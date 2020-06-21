@@ -5,3 +5,6 @@ RUN apt-get update \
     && pecl install mcrypt ssh2-1.2 \
     && docker-php-ext-install gmp bcmath \
     && docker-php-ext-enable mcrypt ssh2
+RUN apt-get install -y openssh-server \
+    && useradd --create-home --base-dir /home phpseclib \
+    && echo "phpseclib:phpseclib" | chpasswd
