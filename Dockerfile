@@ -7,4 +7,5 @@ RUN apt-get update \
     && docker-php-ext-enable mcrypt ssh2
 RUN apt-get install -y openssh-server \
     && useradd --create-home --base-dir /home phpseclib \
-    && echo "phpseclib:phpseclib" | chpasswd
+    && echo "phpseclib:phpseclib" | chpasswd \
+    && service ssh start
