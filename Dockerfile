@@ -4,4 +4,6 @@ RUN apt-get update \
     && apt-get -y install libgmp-dev libmcrypt-dev \
     && pecl install mcrypt \
     && docker-php-ext-install gmp bcmath \
-    && docker-php-ext-enable mcrypt
+    && docker-php-ext-enable mcrypt opcache
+
+COPY opcache.ini /usr/local/etc/php/conf.d/opcache.ini
