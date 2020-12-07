@@ -7,13 +7,13 @@ The following extensions are available on all containers:
 - OpenSSL
 - mcrypt
 - sodium (5.6+ only)
-- ssh2 (5.3+ only)
+- ssh2 (5.3-7.4 only)
 
 **ssh2**
 
 This PECL extension is included for comparison purposes with phpseclib.
 
-The PHP 4.4, 5.0, 5.1 and 5.2 Dockerfile's do not support libssh2 due to issues I was having with installing / compiling the extensions. If you're able to get libssh2 working in these versions feel free to submit a pull request.
+The PHP 4.4, 5.0, 5.1, 5.2 and 8.0 Dockerfile's do not support libssh2 due to issues I was having with installing / compiling the extensions. If you're able to get libssh2 working in these versions feel free to submit a pull request.
 
 **sodium**
 
