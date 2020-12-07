@@ -49,6 +49,7 @@ mcrypt is an exception to this because mcrypt used to be a core extension and be
 
 (in order of priority)
 
+- get libssh2 [working on PHP 8.0](https://bugs.php.net/bug.php?id=80250)
 - implementing some [testing](https://docs.docker.com/docker-hub/builds/automated-testing/).
 - providing [i386 Ubuntu builds](https://hub.docker.com/r/i386/ubuntu/)
 - getting libssh2 working on PHP 4.4, 5.0, 5.1 and 5.2
