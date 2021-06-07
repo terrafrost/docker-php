@@ -15,7 +15,7 @@ After installing Docker you may use these containers to run multiple versions of
 ```
 docker pull "phpseclib/php8.0"
 printf "alias php80='docker run -it --rm --name php80 --user \$(id -u):\$(id -g) -v \"\$PWD\":/usr/src/myapp -w /usr/src/myapp phpseclib/php8.0 php'\n" >> ~/.bashrc
-printf "alias php80='docker run -it --rm --name composer80 --user \$(id -u):\$(id -g) -v \"\$PWD\":/usr/src/myapp -w /usr/src/myapp phpseclib/php8.0 composer'\n" >> ~/.bashrc
+printf "alias composer80='docker run -it --rm --name php80 --user \$(id -u):\$(id -g) -v \"\$PWD\":/usr/src/myapp -w /usr/src/myapp phpseclib/php8.0 composer'\n" >> ~/.bashrc
 ```
 
 At this point you'll be able to do `php80 test.php` to run PHP scripts using the 8.0 container or `composer80 require phpseclib/phpseclib:^3.0` to run Composer using the 8.0 container
