@@ -7,13 +7,26 @@ The following extensions are available on all containers:
 - OpenSSL
 - mcrypt
 - sodium (5.6+ only)
-- ssh2 (5.3-7.4 only)
+- ssh2 (5.3+ only)
+
+## Running Multiple PHP versions via Docker
+After installing Docker you may use these containers to run multiple versions of PHP on Linux via Docker. Using the 8.0 container as an example, here's what you'd want to do:
+
+```
+docker pull "phpseclib/php8.0"
+printf "alias php80='docker run -it --rm --name php80 --user $(id -u):$(id -g) -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp phpseclib/php8.0 php'\n" >> ~/.bashrc
+printf "alias php80='docker run -it --rm --name composer80 --user $(id -u):$(id -g) -v \"$PWD\":/usr/src/myapp -w /usr/src/myapp phpseclib/php8.0 composer'\n" >> ~/.bashrc
+```
+
+At this point you'll be able to do `php80 test.php` to run PHP scripts using the 8.0 container or `composer80 require phpseclib/phpseclib:^3.0` to run Composer using the 8.0 container
+
+## Notes on the available extensions
 
 **ssh2**
 
 This PECL extension is included for comparison purposes with phpseclib.
 
-The PHP 4.4, 5.0, 5.1, 5.2 and 8.0 Dockerfile's do not support libssh2 due to issues I was having with installing / compiling the extensions. If you're able to get libssh2 working in these versions feel free to submit a pull request.
+The PHP 4.4, 5.0, 5.1 and 5.2 Dockerfile's do not support libssh2 due to issues I was having with installing / compiling the extensions. If you're able to get libssh2 working in these versions feel free to submit a pull request.
 
 **sodium**
 
@@ -49,7 +62,6 @@ mcrypt is an exception to this because mcrypt used to be a core extension and be
 
 (in order of priority)
 
-- get libssh2 [working on PHP 8.0](https://bugs.php.net/bug.php?id=80250)
 - implementing some [testing](https://docs.docker.com/docker-hub/builds/automated-testing/).
 - providing [i386 Ubuntu builds](https://hub.docker.com/r/i386/ubuntu/)
 - getting libssh2 working on PHP 4.4, 5.0, 5.1 and 5.2
