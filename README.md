@@ -20,6 +20,13 @@ printf "alias composer80='docker run -it --rm --name php80 --user \$(id -u):\$(i
 
 At this point you'll be able to do `php80 test.php` to run PHP scripts using the 8.0 container or `composer80 require phpseclib/phpseclib:^3.0` to run Composer using the 8.0 container
 
+If you want to run PHP 8.1+ the above will need to be preceeded with the following:
+
+```
+docker pull "quay.io/phpseclib/php8.1"
+docker image tag "quay.io/phpseclib/php8.1" "phpseclib/php8.1"
+```
+
 ## Notes on the available extensions
 
 **ssh2**
